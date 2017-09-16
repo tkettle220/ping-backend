@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170916211509) do
+ActiveRecord::Schema.define(version: 20170916222121) do
 
   create_table "friendships", force: :cascade do |t|
     t.integer "user_id"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20170916211509) do
     t.integer "visible_radius", default: 10, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "pro_pic_url"
   end
 
 end

@@ -22,3 +22,7 @@ tommy = User.create!(facebook_id: "3", session_token: "ghi", location_id: app_ac
 
 
 #Friendship
+sachithlikestommy = Friendship.create!(user_id: sachith.id, friend_id: tommy.id)
+tommylikessachith = Friendship.create!(user_id: tommy.id, friend_id: sachith.id)
+kevinlikestommy = Friendship.create!(user_id: kevin.id, friend_id: tommy.id)
+tommylikeskevin = Friendship.create!(user_id: tommy.id, friend_id: kevin.id)
