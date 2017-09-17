@@ -14,6 +14,11 @@ class Api::SessionsController < ApplicationController
   def make_user
     @user = User.new({session_token: params[:session_token]})
     graph = Koala::Facebook::API.new(@user.session_token)
+    id = graph.get_object("me")["id"]
+    if id != params[:facebook_id]
+      render json: ["Invalid session token"], status: 401
+      return
+    end
     @user.fill_user_data(graph)
     if @user.save
       @user.add_friends(graph)
@@ -25,8 +30,7 @@ class Api::SessionsController < ApplicationController
 
 
   def current_user
-    facebook_id = params[:facebook_id]
-    return User.find_by(facebook_id: facebook_id)
+    return User.find_by(facebook_id: params[:facebook_id])
   end
 
   private
