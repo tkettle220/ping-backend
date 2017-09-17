@@ -42,7 +42,7 @@ class Api::UsersController < ApplicationController
         ping = {
           from: @user.facebook_id,
 
-          time: Time.now,
+          time: Time.now.to_i,
           emergency: @emergency,
           status: false
         }
