@@ -11,10 +11,10 @@ class Api::UsersController < ApplicationController
     if @user
       location = @user.location
       if location
-        location.latitude = params[:lat].to_f
-        location.longitude = params[:lng].to_f
+        location.update_attributes(location_params)
       else
         location = Location.create!(latitude: params[:lat].to_f, longitude: params[:lng].to_f)
+        location.save!
       end
       location.save!
       @user.location_id = location.id
@@ -94,6 +94,12 @@ class Api::UsersController < ApplicationController
       render json: ["Invalid session token"], status: 401
     end
 
+  end
+
+  private
+
+  def location_params
+    params.require(:location).permit(:longitude, :latitude)
   end
 
 
