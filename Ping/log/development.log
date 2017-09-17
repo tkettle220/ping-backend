@@ -5259,3 +5259,600 @@ Completed 200 OK in 3068ms (Views: 25.2ms | ActiveRecord: 4.8ms)
   [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" ORDER BY "locations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
   [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" ORDER BY "locations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
   [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" ORDER BY "locations"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/api/users" for 67.169.71.210 at 2017-09-16 19:29:43 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [PUT] "/api/users"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:20:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/api/session" for 67.169.71.210 at 2017-09-16 19:30:56 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"facebook_id"=>"1683815938304369", "session_token"=>"EAAY5MI6sEZCgBABDy5ftjpNJ7pNwh4TqvSK8KJAavtWZC98VyBB0yZBJ4mSDH5lWaAmb4yDW7qxQErvJKyO2QPqWWjUSkmTcFaZCbJOOlqZAyClrKFr7ZCv8pMMXzhUzZBTJRi0sdAHyfepiYSRIZAEh80aV1UZAb32l54MGZCMiMWsXorSvT7UIc1Fq6nfNZB0WBeTBeuqWHkZATmiCqIm7DTz6mbxL7iMfGoLvjwaW38SZBogChZAqfYtMZAQ", "session"=>{"facebook_id"=>"1683815938304369", "session_token"=>"EAAY5MI6sEZCgBABDy5ftjpNJ7pNwh4TqvSK8KJAavtWZC98VyBB0yZBJ4mSDH5lWaAmb4yDW7qxQErvJKyO2QPqWWjUSkmTcFaZCbJOOlqZAyClrKFr7ZCv8pMMXzhUzZBTJRi0sdAHyfepiYSRIZAEh80aV1UZAb32l54MGZCMiMWsXorSvT7UIc1Fq6nfNZB0WBeTBeuqWHkZATmiCqIm7DTz6mbxL7iMfGoLvjwaW38SZBogChZAqfYtMZAQ"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT ?[0m  [["facebook_id", "1683815938304369"], ["LIMIT", 1]]
+Unpermitted parameters: :facebook_id, :format, :session
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("facebook_id", "session_token", "visible_radius", "created_at", "updated_at", "name", "pro_pic_url") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["facebook_id", "1683815938304369"], ["session_token", "EAAY5MI6sEZCgBABDy5ftjpNJ7pNwh4TqvSK8KJAavtWZC98VyBB0yZBJ4mSDH5lWaAmb4yDW7qxQErvJKyO2QPqWWjUSkmTcFaZCbJOOlqZAyClrKFr7ZCv8pMMXzhUzZBTJRi0sdAHyfepiYSRIZAEh80aV1UZAb32l54MGZCMiMWsXorSvT7UIc1Fq6nfNZB0WBeTBeuqWHkZATmiCqIm7DTz6mbxL7iMfGoLvjwaW38SZBogChZAqfYtMZAQ"], ["visible_radius", 5], ["created_at", "2017-09-17 02:30:57.095470"], ["updated_at", "2017-09-17 02:30:57.095470"], ["name", "Tommy Kilmer"], ["pro_pic_url", "http://graph.facebook.com/1683815938304369/picture"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT ?[0m  [["facebook_id", "10155757977328035"], ["LIMIT", 1]]
+  Rendering api/users/show.json.jbuilder
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "friend_id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered api/users/_user.json.jbuilder (9.0ms)
+  Rendered api/users/show.json.jbuilder (9.9ms)
+Completed 200 OK in 467ms (Views: 13.2ms | ActiveRecord: 4.0ms)
+
+
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/api/session" for 67.169.71.210 at 2017-09-16 19:31:20 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"facebook_id"=>"10155757977328035", "session_token"=>"EAAY5MI6sEZCgBAGOMbbbaoss73WIwAESh2HWeUHzU8kJqZB5Jg8pRZALtOE9urk8Orf8HuOZAhPoEGPvYrlSTpkD2yEpXzvv5AyYc45x0zICIcWDq9F46vnRLDi7dU8ZCHYZCJtjHpvbuEXCIHhynCcyM21TXxGZAVr4GkW6JkbU8muwO1REZCa1YwzWjCP7zGAwOeFer0NsWDUZBiKNCZAEJPfGJee0ZAGtguJRUJAGK3xgXPRl9xAD2gtZCX7HmVgGvgwZD", "session"=>{"facebook_id"=>"10155757977328035", "session_token"=>"EAAY5MI6sEZCgBAGOMbbbaoss73WIwAESh2HWeUHzU8kJqZB5Jg8pRZALtOE9urk8Orf8HuOZAhPoEGPvYrlSTpkD2yEpXzvv5AyYc45x0zICIcWDq9F46vnRLDi7dU8ZCHYZCJtjHpvbuEXCIHhynCcyM21TXxGZAVr4GkW6JkbU8muwO1REZCa1YwzWjCP7zGAwOeFer0NsWDUZBiKNCZAEJPfGJee0ZAGtguJRUJAGK3xgXPRl9xAD2gtZCX7HmVgGvgwZD"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT ?[0m  [["facebook_id", "10155757977328035"], ["LIMIT", 1]]
+Unpermitted parameters: :facebook_id, :format, :session
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("facebook_id", "session_token", "visible_radius", "created_at", "updated_at", "name", "pro_pic_url") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["facebook_id", "10155757977328035"], ["session_token", "EAAY5MI6sEZCgBAGOMbbbaoss73WIwAESh2HWeUHzU8kJqZB5Jg8pRZALtOE9urk8Orf8HuOZAhPoEGPvYrlSTpkD2yEpXzvv5AyYc45x0zICIcWDq9F46vnRLDi7dU8ZCHYZCJtjHpvbuEXCIHhynCcyM21TXxGZAVr4GkW6JkbU8muwO1REZCa1YwzWjCP7zGAwOeFer0NsWDUZBiKNCZAEJPfGJee0ZAGtguJRUJAGK3xgXPRl9xAD2gtZCX7HmVgGvgwZD"], ["visible_radius", 5], ["created_at", "2017-09-17 02:31:21.266125"], ["updated_at", "2017-09-17 02:31:21.266125"], ["name", "Sachith Gullapalli"], ["pro_pic_url", "http://graph.facebook.com/10155757977328035/picture"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT ?[0m  [["facebook_id", "1683815938304369"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["friend_id", 2], ["created_at", "2017-09-17 02:31:21.498657"], ["updated_at", "2017-09-17 02:31:21.498657"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 2], ["friend_id", 3], ["created_at", "2017-09-17 02:31:21.503880"], ["updated_at", "2017-09-17 02:31:21.503880"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  Rendering api/users/show.json.jbuilder
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "friend_id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (1.8ms)
+  Rendered api/users/show.json.jbuilder (2.8ms)
+Completed 200 OK in 546ms (Views: 7.1ms | ActiveRecord: 6.0ms)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/api/users" for 67.169.71.210 at 2017-09-16 19:45:44 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::UsersController#update as JSON
+  Parameters: {"session_token"=>"EAAY5MI6sEZCgBAFnYmKI65Wo2ZCM9VsSIWxNXSBbbc2xUR1gz0k74JEnEGfgqRYAgZAiXMlTS7AlWKZBLv1yVAZBcrixwtSt61FCAAYQzPsjpsvgocQ57BZCGSQyJGv4ZB5rn6Jui6KwW28DopZBZBrtUqNd3u494q0gsiJdclx7BNLz2LSCnUfT9P2sB1grzcDgreR7TI4ZBphQZDZD", "lat"=>"37.776521", "lng"=>"-122.413125"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["latitude", 37.776521], ["longitude", -122.413125], ["created_at", "2017-09-17 02:45:44.613676"], ["updated_at", "2017-09-17 02:45:44.613676"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "EAAY5MI6sEZCgBAFnYmKI65Wo2ZCM9VsSIWxNXSBbbc2xUR1gz0k74JEnEGfgqRYAgZAiXMlTS7AlWKZBLv1yVAZBcrixwtSt61FCAAYQzPsjpsvgocQ57BZCGSQyJGv4ZB5rn6Jui6KwW28DopZBZBrtUqNd3u494q0gsiJdclx7BNLz2LSCnUfT9P2sB1grzcDgreR7TI4ZBphQZDZD"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 18ms (Views: 0.2ms | ActiveRecord: 2.6ms)
+
+
+Started PUT "/api/users" for 67.169.71.210 at 2017-09-16 19:46:09 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::UsersController#update as JSON
+  Parameters: {"session_token"=>"EAAY5MI6sEZCgBAFnYmKI65Wo2ZCM9VsSIWxNXSBbbc2xUR1gz0k74JEnEGfgqRYAgZAiXMlTS7AlWKZBLv1yVAZBcrixwtSt61FCAAYQzPsjpsvgocQ57BZCGSQyJGv4ZB5rn6Jui6KwW28DopZBZBrtUqNd3u494q0gsiJdclx7BNLz2LSCnUfT9P2sB1grzcDgreR7TI4ZBphQZDZD", "lat"=>"37.776521", "lng"=>"-122.413125"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["latitude", 37.776521], ["longitude", -122.413125], ["created_at", "2017-09-17 02:46:09.339361"], ["updated_at", "2017-09-17 02:46:09.339361"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "EAAY5MI6sEZCgBAFnYmKI65Wo2ZCM9VsSIWxNXSBbbc2xUR1gz0k74JEnEGfgqRYAgZAiXMlTS7AlWKZBLv1yVAZBcrixwtSt61FCAAYQzPsjpsvgocQ57BZCGSQyJGv4ZB5rn6Jui6KwW28DopZBZBrtUqNd3u494q0gsiJdclx7BNLz2LSCnUfT9P2sB1grzcDgreR7TI4ZBphQZDZD"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 2.7ms)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "EAAY5MI6sEZCgBAFnYmKI65Wo2ZCM9VsSIWxNXSBbbc2xUR1gz0k74JEnEGfgqRYAgZAiXMlTS7AlWKZBLv1yVAZBcrixwtSt61FCAAYQzPsjpsvgocQ57BZCGSQyJGv4ZB5rn6Jui6KwW28DopZBZBrtUqNd3u494q0gsiJdclx7BNLz2LSCnUfT9P2sB1grzcDgreR7TI4ZBphQZDZD"], ["LIMIT", 1]]
+Started PUT "/api/users" for 67.169.71.210 at 2017-09-16 19:47:06 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::UsersController#update as JSON
+  Parameters: {"session_token"=>"EAAY5MI6sEZCgBABDy5ftjpNJ7pNwh4TqvSK8KJAavtWZC98VyBB0yZBJ4mSDH5lWaAmb4yDW7qxQErvJKyO2QPqWWjUSkmTcFaZCbJOOlqZAyClrKFr7ZCv8pMMXzhUzZBTJRi0sdAHyfepiYSRIZAEh80aV1UZAb32l54MGZCMiMWsXorSvT7UIc1Fq6nfNZB0WBeTBeuqWHkZATmiCqIm7DTz6mbxL7iMfGoLvjwaW38SZBogChZAqfYtMZAQ", "lat"=>"37.776521", "lng"=>"-122.413125"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["latitude", 37.776521], ["longitude", -122.413125], ["created_at", "2017-09-17 02:47:06.179942"], ["updated_at", "2017-09-17 02:47:06.179942"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "EAAY5MI6sEZCgBABDy5ftjpNJ7pNwh4TqvSK8KJAavtWZC98VyBB0yZBJ4mSDH5lWaAmb4yDW7qxQErvJKyO2QPqWWjUSkmTcFaZCbJOOlqZAyClrKFr7ZCv8pMMXzhUzZBTJRi0sdAHyfepiYSRIZAEh80aV1UZAb32l54MGZCMiMWsXorSvT7UIc1Fq6nfNZB0WBeTBeuqWHkZATmiCqIm7DTz6mbxL7iMfGoLvjwaW38SZBogChZAqfYtMZAQ"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "location_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["location_id", 6], ["updated_at", "2017-09-17 02:47:06.195361"], ["id", 2]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  Rendering api/users/show.json.jbuilder
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "friend_id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered api/users/_user.json.jbuilder (8.8ms)
+  Rendered api/users/show.json.jbuilder (9.8ms)
+Completed 200 OK in 34ms (Views: 13.1ms | ActiveRecord: 4.7ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (2.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendships"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "friendships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "friend_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "locations"[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "latitude" decimal(15,10), "longitude" decimal(15,10), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX "index_locations_on_latitude_and_longitude" ON "locations" ("latitude", "longitude")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_locations_on_latitude_and_longitude' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_locations_on_latitude_and_longitude' AND type='index'
+[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX "index_locations_on_latitude" ON "locations" ("latitude")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_locations_on_latitude' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_locations_on_latitude' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_locations_on_latitude_and_longitude' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_locations_on_latitude_and_longitude' AND type='index'
+[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX "index_locations_on_longitude" ON "locations" ("longitude")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" varchar NOT NULL, "session_token" varchar NOT NULL, "location_id" integer, "visible_radius" integer DEFAULT 10 NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar, "pro_pic_url" varchar)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX "index_users_on_facebook_id" ON "users" ("facebook_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_facebook_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_facebook_id' AND type='index'
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_users_on_location_id" ON "users" ("location_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_location_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_location_id' AND type='index'
+[0m
+  [1m[35m (0.8ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_facebook_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_facebook_id' AND type='index'
+[0m
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE  INDEX "index_users_on_session_token" ON "users" ("session_token")[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (2.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendships"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "friendships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "friend_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "locations"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "latitude" decimal(15,10), "longitude" decimal(15,10), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX "index_locations_on_latitude_and_longitude" ON "locations" ("latitude", "longitude")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_locations_on_latitude_and_longitude' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_locations_on_latitude_and_longitude' AND type='index'
+[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX "index_locations_on_latitude" ON "locations" ("latitude")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_locations_on_latitude' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_locations_on_latitude' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_locations_on_latitude_and_longitude' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_locations_on_latitude_and_longitude' AND type='index'
+[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX "index_locations_on_longitude" ON "locations" ("longitude")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" varchar NOT NULL, "session_token" varchar NOT NULL, "location_id" integer, "visible_radius" integer DEFAULT 10 NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar, "pro_pic_url" varchar)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX "index_users_on_facebook_id" ON "users" ("facebook_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_facebook_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_facebook_id' AND type='index'
+[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX "index_users_on_location_id" ON "users" ("location_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_location_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_location_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_facebook_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_facebook_id' AND type='index'
+[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE  INDEX "index_users_on_session_token" ON "users" ("session_token")[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  [1m[36mFriendship Load (0.3ms)[0m  [1m[34mSELECT "friendships".* FROM "friendships"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "locations" ("name", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "735 Minna"], ["latitude", 37.776521], ["longitude", -122.413125], ["created_at", "2017-09-17 02:48:11.840414"], ["updated_at", "2017-09-17 02:48:11.840414"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("name", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "431 Tehma"], ["latitude", 37.78036], ["longitude", -122.405042], ["created_at", "2017-09-17 02:48:11.844844"], ["updated_at", "2017-09-17 02:48:11.844844"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("name", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "1600 Ampitheater Parkway"], ["latitude", 37.421655], ["longitude", -122.085637], ["created_at", "2017-09-17 02:48:11.847154"], ["updated_at", "2017-09-17 02:48:11.847154"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/api/session" for 67.169.71.210 at 2017-09-16 19:48:30 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"facebook_id"=>"1683815938304369", "session_token"=>"EAAY5MI6sEZCgBANVX4g1suHFfaBRfmzCA6Anp1NfhdbT88lTn3YkXHhx6jvQfMy7LWfUdwnaGxZBVFw4yhgAUffcKH3jZCWj8KDPwll2TRefZCcmLRjZAanle1YGWGeUxsN9uXBqrO3dtWyTh3bxPNoRp8pF3fTXzxDwafPM3deMLwZCDufmrEOvts41Nb72jLsCBkybRXmOfmGYVepTyfdGxAa05W9OlcnuilpqGl5jVYztasZAACn", "session"=>{"facebook_id"=>"1683815938304369", "session_token"=>"EAAY5MI6sEZCgBANVX4g1suHFfaBRfmzCA6Anp1NfhdbT88lTn3YkXHhx6jvQfMy7LWfUdwnaGxZBVFw4yhgAUffcKH3jZCWj8KDPwll2TRefZCcmLRjZAanle1YGWGeUxsN9uXBqrO3dtWyTh3bxPNoRp8pF3fTXzxDwafPM3deMLwZCDufmrEOvts41Nb72jLsCBkybRXmOfmGYVepTyfdGxAa05W9OlcnuilpqGl5jVYztasZAACn"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT ?[0m  [["facebook_id", "1683815938304369"], ["LIMIT", 1]]
+Unpermitted parameters: :facebook_id, :format, :session
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Entity in 425ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/api/session" for 67.169.71.210 at 2017-09-16 19:49:23 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"facebook_id"=>"1683815938304369", "session_token"=>"EAAY5MI6sEZCgBAJ9IN5IoldhbZCeK6R58zXrCzLdZBjZC5N5dPFUEh9ZCXBwNQUpG1gXY28plG8N7HY2fj7LSaYY1pOk6pEXZBLm6TMV9bwpvwWI1rolTJU3LMf5YN7Xl2FtbwwDQ5WhZAVY2QSZAIIZBBlliLIWnXvABLXHrZCJYvZB8onyIYZAExBtfaRZBP9W9PaUHC7BIAZAVLMoEPoWk3lzfXHAsjEOGUuWYymjV0styuyQWFYZCzTPU46", "session"=>{"facebook_id"=>"1683815938304369", "session_token"=>"EAAY5MI6sEZCgBAJ9IN5IoldhbZCeK6R58zXrCzLdZBjZC5N5dPFUEh9ZCXBwNQUpG1gXY28plG8N7HY2fj7LSaYY1pOk6pEXZBLm6TMV9bwpvwWI1rolTJU3LMf5YN7Xl2FtbwwDQ5WhZAVY2QSZAIIZBBlliLIWnXvABLXHrZCJYvZB8onyIYZAExBtfaRZBP9W9PaUHC7BIAZAVLMoEPoWk3lzfXHAsjEOGUuWYymjV0styuyQWFYZCzTPU46"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT ?[0m  [["facebook_id", "1683815938304369"], ["LIMIT", 1]]
+Unpermitted parameters: :format, :session
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Entity in 279ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/session" for 67.169.71.210 at 2017-09-16 19:50:04 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"facebook_id"=>"1683815938304369", "session_token"=>"EAAY5MI6sEZCgBAAW0aZCJdpxTEZCQjtPtZB8EdexpvvaVhcBEjZCXA4no5O765S1E8mLI895R8qt8oPSJhT7elENAqgkPe3Kf3ZCYzhCd7b3UCZAZAZCvZAf3liRmvFjM3hVdya5DdyjFoXh7C360mXvZCVGZAHTsQzh0i4cD0fOm2hSSVXSZBhZBW2SlV3mbI1AIRyZAnw24lgRN3TAE573sgtLHt0J6uz3MX6ly0HTlKesW3OBpNiW0r4CxPn", "session"=>{"facebook_id"=>"1683815938304369", "session_token"=>"EAAY5MI6sEZCgBAAW0aZCJdpxTEZCQjtPtZB8EdexpvvaVhcBEjZCXA4no5O765S1E8mLI895R8qt8oPSJhT7elENAqgkPe3Kf3ZCYzhCd7b3UCZAZAZCvZAf3liRmvFjM3hVdya5DdyjFoXh7C360mXvZCVGZAHTsQzh0i4cD0fOm2hSSVXSZBhZBW2SlV3mbI1AIRyZAnw24lgRN3TAE573sgtLHt0J6uz3MX6ly0HTlKesW3OBpNiW0r4CxPn"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT ?[0m  [["facebook_id", "1683815938304369"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.8ms)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument.):
+  
+app/controllers/api/sessions_controller.rb:15:in `make_user'
+app/controllers/api/sessions_controller.rb:10:in `create'
+Started POST "/api/session" for 67.169.71.210 at 2017-09-16 19:50:19 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"facebook_id"=>"10155757977328035", "session_token"=>"EAAY5MI6sEZCgBAP0ilRZASnKBhvjaRCqsOXNrUcqlbt4m6JDkyDzXGNYAbb9MWXe8coHS4VQ5mFm20ObZAMBtPJb2LV8L8Wbu5DqcNGSeonOpbhT9ABQpSG5CB7VuMJyQTqk0iHKh7tzJppaZBhXu639p1GzlSjcYMAZBPJgPYYNRYRdykPeZBDuoORIzNUZBAv3DBZBlfmWQtXE55ZBsOXadtvPdZB2WOgksVKnEgGUxYJ6TPGTZBgKDiYKNMls2etDewZD", "session"=>{"facebook_id"=>"10155757977328035", "session_token"=>"EAAY5MI6sEZCgBAP0ilRZASnKBhvjaRCqsOXNrUcqlbt4m6JDkyDzXGNYAbb9MWXe8coHS4VQ5mFm20ObZAMBtPJb2LV8L8Wbu5DqcNGSeonOpbhT9ABQpSG5CB7VuMJyQTqk0iHKh7tzJppaZBhXu639p1GzlSjcYMAZBPJgPYYNRYRdykPeZBDuoORIzNUZBAv3DBZBlfmWQtXE55ZBsOXadtvPdZB2WOgksVKnEgGUxYJ6TPGTZBgKDiYKNMls2etDewZD"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT ?[0m  [["facebook_id", "10155757977328035"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument.):
+  
+app/controllers/api/sessions_controller.rb:15:in `make_user'
+app/controllers/api/sessions_controller.rb:10:in `create'
+Started POST "/api/session" for 67.169.71.210 at 2017-09-16 19:50:28 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"facebook_id"=>"10155757977328035", "session_token"=>"EAAY5MI6sEZCgBAKzS9GFrp0ccnd325tpKCzsT9rceIB48lfyZBrSjxx0ITZBl0ZAsAhig39mOrag1q1flDjQNvmt1qZCl2l32pGFIHJZADKSQa24PDqMFaxzm80UF706YgURYw7b80uZC5mDXrzn4hp0kAkpST8hHpL1gFmaCazdzOfUHoTHj2OFHvejyLRuOF05xMLWTAlZAPd3PkH8NOLkKrRfWYHHPawzpiBWZCaqWHuqtmHVJZAudrtvEqH1d3FssZD", "session"=>{"facebook_id"=>"10155757977328035", "session_token"=>"EAAY5MI6sEZCgBAKzS9GFrp0ccnd325tpKCzsT9rceIB48lfyZBrSjxx0ITZBl0ZAsAhig39mOrag1q1flDjQNvmt1qZCl2l32pGFIHJZADKSQa24PDqMFaxzm80UF706YgURYw7b80uZC5mDXrzn4hp0kAkpST8hHpL1gFmaCazdzOfUHoTHj2OFHvejyLRuOF05xMLWTAlZAPd3PkH8NOLkKrRfWYHHPawzpiBWZCaqWHuqtmHVJZAudrtvEqH1d3FssZD"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT ?[0m  [["facebook_id", "10155757977328035"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Entity in 290ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/session" for 67.169.71.210 at 2017-09-16 19:50:52 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"facebook_id"=>"10155757977328035", "session_token"=>"EAAY5MI6sEZCgBAL94JjBGpjr9ZCSRWKqG0S06WIg7S6mZA0rCAdaboRq6pSzF05NOMpHj8eSMIZCcT2kko7s9jZAoFzLPaVCiuLjfC6FwgBKhOWohWM6TLOJu9k3aZAPBXgh3JIEWw9FyzG3dXuYzF7d8Gg9tuknbv0bhULlYSuoj2G97nOlnBrjm57ZAzdaS68GTYk3z1kunwE9gKiXKihwef6uFwJHZCTFLLb7utsdaIBPmzUhiQ8YnUVKaQKZCvlgZD", "session"=>{"facebook_id"=>"10155757977328035", "session_token"=>"EAAY5MI6sEZCgBAL94JjBGpjr9ZCSRWKqG0S06WIg7S6mZA0rCAdaboRq6pSzF05NOMpHj8eSMIZCcT2kko7s9jZAoFzLPaVCiuLjfC6FwgBKhOWohWM6TLOJu9k3aZAPBXgh3JIEWw9FyzG3dXuYzF7d8Gg9tuknbv0bhULlYSuoj2G97nOlnBrjm57ZAzdaS68GTYk3z1kunwE9gKiXKihwef6uFwJHZCTFLLb7utsdaIBPmzUhiQ8YnUVKaQKZCvlgZD"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT ?[0m  [["facebook_id", "10155757977328035"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Entity in 295ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/api/session" for 67.169.71.210 at 2017-09-16 19:57:21 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"facebook_id"=>"1683815938304369", "session_token"=>"EAAY5MI6sEZCgBABuBdZBudKa3Nqns8uZAXPytuPZBAZBYr6Yh0acIj969RaeTPck6dfgOX7CNTeBErcD2f0snDRwXRRp7s3ZCyqr2Q1jJJIiJ8SmfBBiraEegxfuw6DGV2XtBMWYoZCHBma3RrnEnz1qrt9EXALC8rFCShvHhwz0833Fi7aMLHiths4MrFlpdXPhItAcOyB945N7tEivi3u4dPgzmgA2K4UPzgQ7ZA6LN8bTQi484NxU", "session"=>{"facebook_id"=>"1683815938304369", "session_token"=>"EAAY5MI6sEZCgBABuBdZBudKa3Nqns8uZAXPytuPZBAZBYr6Yh0acIj969RaeTPck6dfgOX7CNTeBErcD2f0snDRwXRRp7s3ZCyqr2Q1jJJIiJ8SmfBBiraEegxfuw6DGV2XtBMWYoZCHBma3RrnEnz1qrt9EXALC8rFCShvHhwz0833Fi7aMLHiths4MrFlpdXPhItAcOyB945N7tEivi3u4dPgzmgA2K4UPzgQ7ZA6LN8bTQi484NxU"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT ?[0m  [["facebook_id", "1683815938304369"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Entity in 297ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/session" for 67.169.71.210 at 2017-09-16 19:58:44 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"facebook_id"=>"1683815938304369", "session_token"=>"EAAY5MI6sEZCgBANctbICAyREvsKfvvMI2YPN18MZB644HVgHUUZBPZACiZA272U5tv1TigL4A4dc0y8mvq9cNMnZBcUPdrPCGkqxo1VchXsapv8vCDJGzjI4T3RXOb79LgzZC8gijX6wVayZA6eZCjjXpfwZCgBqLNAy7MaZAiOlDr3MHpiUB2EM65inNTfsXDGrc5h5zLZBPzqfWdSWF7GodBlYviSZC9rsZBfnA4Ndd68m1XVKnRqPmrBeFP", "session"=>{"facebook_id"=>"1683815938304369", "session_token"=>"EAAY5MI6sEZCgBANctbICAyREvsKfvvMI2YPN18MZB644HVgHUUZBPZACiZA272U5tv1TigL4A4dc0y8mvq9cNMnZBcUPdrPCGkqxo1VchXsapv8vCDJGzjI4T3RXOb79LgzZC8gijX6wVayZA6eZCjjXpfwZCgBqLNAy7MaZAiOlDr3MHpiUB2EM65inNTfsXDGrc5h5zLZBPzqfWdSWF7GodBlYviSZC9rsZBfnA4Ndd68m1XVKnRqPmrBeFP"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT ?[0m  [["facebook_id", "1683815938304369"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Entity in 121767ms (Views: 0.4ms | ActiveRecord: 14.5ms)
+
+
+Started POST "/api/session" for 67.169.71.210 at 2017-09-16 20:01:07 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"facebook_id"=>"1683815938304369", "session_token"=>"EAAY5MI6sEZCgBADmmW5omK4Hvtp409ECpi208iFdQ3gZBS5CpFhn5KZCy4w9q656A7ZByFPpS0c7BCMnCXNKZBCa9g89nwm1UQ3nZCxVHRzFtdKYmdNDz4QlJozkmLKofhzs5M9mWqiBVhM3VmHNvrZAthelZB7dCjXQVZBtDNjil4HSY2v8q2ZBNNm2WlvNClI1GmCdZASyLtC1k3pV7vZAgthTA5p0DRbXq8pqUEtZC49Kx5dB3WCHo7MlZC", "session"=>{"facebook_id"=>"1683815938304369", "session_token"=>"EAAY5MI6sEZCgBADmmW5omK4Hvtp409ECpi208iFdQ3gZBS5CpFhn5KZCy4w9q656A7ZByFPpS0c7BCMnCXNKZBCa9g89nwm1UQ3nZCxVHRzFtdKYmdNDz4QlJozkmLKofhzs5M9mWqiBVhM3VmHNvrZAthelZB7dCjXQVZBtDNjil4HSY2v8q2ZBNNm2WlvNClI1GmCdZASyLtC1k3pV7vZAgthTA5p0DRbXq8pqUEtZC49Kx5dB3WCHo7MlZC"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT ?[0m  [["facebook_id", "1683815938304369"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("facebook_id", "session_token", "visible_radius", "created_at", "updated_at", "name", "pro_pic_url") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["facebook_id", "1683815938304369"], ["session_token", "EAAY5MI6sEZCgBADmmW5omK4Hvtp409ECpi208iFdQ3gZBS5CpFhn5KZCy4w9q656A7ZByFPpS0c7BCMnCXNKZBCa9g89nwm1UQ3nZCxVHRzFtdKYmdNDz4QlJozkmLKofhzs5M9mWqiBVhM3VmHNvrZAthelZB7dCjXQVZBtDNjil4HSY2v8q2ZBNNm2WlvNClI1GmCdZASyLtC1k3pV7vZAgthTA5p0DRbXq8pqUEtZC49Kx5dB3WCHo7MlZC"], ["visible_radius", 5], ["created_at", "2017-09-17 03:01:07.987261"], ["updated_at", "2017-09-17 03:01:07.987261"], ["name", "Tommy Kilmer"], ["pro_pic_url", "http://graph.facebook.com/1683815938304369/picture"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT ?[0m  [["facebook_id", "10155757977328035"], ["LIMIT", 1]]
+  Rendering api/users/show.json.jbuilder
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "friend_id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered api/users/_user.json.jbuilder (7.6ms)
+  Rendered api/users/show.json.jbuilder (8.6ms)
+Completed 200 OK in 509ms (Views: 11.8ms | ActiveRecord: 3.8ms)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "locations" WHERE "locations"."id" = ?[0m  [["id", 1]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "locations" WHERE "locations"."id" = ?[0m  [["id", 2]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "locations" WHERE "locations"."id" = ?[0m  [["id", 3]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+Started PUT "/api/users" for 67.169.71.210 at 2017-09-16 20:02:03 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::UsersController#update as JSON
+  Parameters: {"session_token"=>"EAAY5MI6sEZCgBADmmW5omK4Hvtp409ECpi208iFdQ3gZBS5CpFhn5KZCy4w9q656A7ZByFPpS0c7BCMnCXNKZBCa9g89nwm1UQ3nZCxVHRzFtdKYmdNDz4QlJozkmLKofhzs5M9mWqiBVhM3VmHNvrZAthelZB7dCjXQVZBtDNjil4HSY2v8q2ZBNNm2WlvNClI1GmCdZASyLtC1k3pV7vZAgthTA5p0DRbXq8pqUEtZC49Kx5dB3WCHo7MlZC", "lat"=>"37.776521", "lng"=>"-122.413125"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["latitude", 37.776521], ["longitude", -122.413125], ["created_at", "2017-09-17 03:02:03.155585"], ["updated_at", "2017-09-17 03:02:03.155585"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "EAAY5MI6sEZCgBADmmW5omK4Hvtp409ECpi208iFdQ3gZBS5CpFhn5KZCy4w9q656A7ZByFPpS0c7BCMnCXNKZBCa9g89nwm1UQ3nZCxVHRzFtdKYmdNDz4QlJozkmLKofhzs5M9mWqiBVhM3VmHNvrZAthelZB7dCjXQVZBtDNjil4HSY2v8q2ZBNNm2WlvNClI1GmCdZASyLtC1k3pV7vZAgthTA5p0DRbXq8pqUEtZC49Kx5dB3WCHo7MlZC"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "location_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["location_id", 4], ["updated_at", "2017-09-17 03:02:03.161071"], ["id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  Rendering api/users/show.json.jbuilder
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "friend_id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered api/users/_user.json.jbuilder (1.4ms)
+  Rendered api/users/show.json.jbuilder (2.2ms)
+Completed 200 OK in 22ms (Views: 7.2ms | ActiveRecord: 4.3ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+Started POST "/api/session" for 67.169.71.210 at 2017-09-16 20:04:48 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"facebook_id"=>"1683815938304369", "session_token"=>"EAAY5MI6sEZCgBALr2ZCPu5Uai9zh59L8FGUTJHd0bZB3jiKEbPfds9ZAUAnH3ZAIKijKZBGaE8AMo9uYzZA0bPH50HMZAecyf0ZCf9f1sp3XuzatkU61GEFKxVg1K334D96D53z2WnfwRAjaQ9cMcecNex3NMbVy7k0uGolYZAG011nTF1omGFZAHdP09IAWqOV09t1BwCi2kvWewS0WkkCL3eaabaDUzcPiJiQa54BZBKNJZBGsPyamtdpc4", "session"=>{"facebook_id"=>"1683815938304369", "session_token"=>"EAAY5MI6sEZCgBALr2ZCPu5Uai9zh59L8FGUTJHd0bZB3jiKEbPfds9ZAUAnH3ZAIKijKZBGaE8AMo9uYzZA0bPH50HMZAecyf0ZCf9f1sp3XuzatkU61GEFKxVg1K334D96D53z2WnfwRAjaQ9cMcecNex3NMbVy7k0uGolYZAG011nTF1omGFZAHdP09IAWqOV09t1BwCi2kvWewS0WkkCL3eaabaDUzcPiJiQa54BZBKNJZBGsPyamtdpc4"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT ?[0m  [["facebook_id", "1683815938304369"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "EAAY5MI6sEZCgBALr2ZCPu5Uai9zh59L8FGUTJHd0bZB3jiKEbPfds9ZAUAnH3ZAIKijKZBGaE8AMo9uYzZA0bPH50HMZAecyf0ZCf9f1sp3XuzatkU61GEFKxVg1K334D96D53z2WnfwRAjaQ9cMcecNex3NMbVy7k0uGolYZAG011nTF1omGFZAHdP09IAWqOV09t1BwCi2kvWewS0WkkCL3eaabaDUzcPiJiQa54BZBKNJZBGsPyamtdpc4"], ["updated_at", "2017-09-17 03:04:48.442883"], ["id", 1]]
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  Rendering api/users/show.json.jbuilder
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "friend_id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered api/users/_user.json.jbuilder (9.8ms)
+  Rendered api/users/show.json.jbuilder (11.1ms)
+Completed 200 OK in 31ms (Views: 15.7ms | ActiveRecord: 5.2ms)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started PUT "/api/users" for 67.169.71.210 at 2017-09-16 20:17:08 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::UsersController#update as JSON
+  Parameters: {"session_token"=>"EAAY5MI6sEZCgBANOJcwuWvNX0ZBaqZB0PKGDjCPTCZCbcwGt3kLWKJaca1WsQjSdGNLcRhnd1zYeGZB6MhNzJvijJZCSKWOq3171YwwSA1mJ8Vlpx56H5RZABn36a39SzljTeJ1dZC7hNdISw9MfEZAOD4j2H0KBmk1TODt6MZBpupDWKwACt3w4aNU6NZCxX0VK4uRFDy0ARXZCbAZDZD", "facebook_id"=>"1683815938304369"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (Unknown key: :optional. Valid keys are: :class_name, :anonymous_class, :foreign_key, :validate, :autosave, :foreign_type, :dependent, :primary_key, :inverse_of, :required, :as):
+  
+app/models/location.rb:3:in `<class:Location>'
+app/models/location.rb:1:in `<top (required)>'
+app/controllers/api/users_controller.rb:4:in `update'
+Started PUT "/api/session" for 67.169.71.210 at 2017-09-16 20:20:00 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [PUT] "/api/session"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:20:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/api/session" for 67.169.71.210 at 2017-09-16 20:20:05 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"session_token"=>"EAAY5MI6sEZCgBANOJcwuWvNX0ZBaqZB0PKGDjCPTCZCbcwGt3kLWKJaca1WsQjSdGNLcRhnd1zYeGZB6MhNzJvijJZCSKWOq3171YwwSA1mJ8Vlpx56H5RZABn36a39SzljTeJ1dZC7hNdISw9MfEZAOD4j2H0KBmk1TODt6MZBpupDWKwACt3w4aNU6NZCxX0VK4uRFDy0ARXZCbAZDZD", "facebook_id"=>"1683815938304369"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT ?[0m  [["facebook_id", "1683815938304369"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "EAAY5MI6sEZCgBANOJcwuWvNX0ZBaqZB0PKGDjCPTCZCbcwGt3kLWKJaca1WsQjSdGNLcRhnd1zYeGZB6MhNzJvijJZCSKWOq3171YwwSA1mJ8Vlpx56H5RZABn36a39SzljTeJ1dZC7hNdISw9MfEZAOD4j2H0KBmk1TODt6MZBpupDWKwACt3w4aNU6NZCxX0VK4uRFDy0ARXZCbAZDZD"], ["updated_at", "2017-09-17 03:20:05.386682"], ["id", 1]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (1.4ms)
+  Rendered api/users/show.json.jbuilder (2.7ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 2.6ms)
+
+
+  
+SyntaxError (/Users/tommy/Desktop/ping-backend/Ping/app/views/api/users/_user.json.jbuilder:3: syntax error, unexpected tSYMBEG, expecting '('
+json.friends user.friends. :id, :name, :pro_pic_url
+                            ^):
+  
+app/views/api/users/_user.json.jbuilder:3: syntax error, unexpected tSYMBEG, expecting '('
+app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4204153249892267032_70339455140160'
+app/controllers/api/sessions_controller.rb:8:in `create'
+Started POST "/api/session" for 67.169.71.210 at 2017-09-16 20:20:20 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"session_token"=>"EAAY5MI6sEZCgBANOJcwuWvNX0ZBaqZB0PKGDjCPTCZCbcwGt3kLWKJaca1WsQjSdGNLcRhnd1zYeGZB6MhNzJvijJZCSKWOq3171YwwSA1mJ8Vlpx56H5RZABn36a39SzljTeJ1dZC7hNdISw9MfEZAOD4j2H0KBmk1TODt6MZBpupDWKwACt3w4aNU6NZCxX0VK4uRFDy0ARXZCbAZDZD", "facebook_id"=>"1683815938304369"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT ?[0m  [["facebook_id", "1683815938304369"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered api/users/_user.json.jbuilder (2.2ms)
+  Rendered api/users/show.json.jbuilder (3.3ms)
+Completed 200 OK in 10ms (Views: 7.5ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFriendship Load (0.1ms)[0m  [1m[34mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "locations" WHERE "locations"."id" = ?[0m  [["id", 4]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFriendship Load (0.2ms)[0m  [1m[34mSELECT "friendships".* FROM "friendships"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/api/session" for 67.169.71.210 at 2017-09-16 20:26:26 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"session_token"=>"EAAY5MI6sEZCgBADNbMkfRs0PNhNkGMgqLZAPHzstZBKOpLFRaDHvnRP9dQqBDUZB1Kt4nHrDUmL2nOSC8J9AZCXyhAu9sltCKaoieMdo3LVKrOs8GnEUD9UvWvamoQEHs2WoG9dHefa1tle6P3Wvo7D8vU73RYqkdCXyyqEgAnak3jXwge1PgrqMHrndIXzcZD", "facebook_id"=>"10155757977328035"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT ?[0m  [["facebook_id", "10155757977328035"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("facebook_id", "session_token", "visible_radius", "created_at", "updated_at", "name", "pro_pic_url") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["facebook_id", "10155757977328035"], ["session_token", "EAAY5MI6sEZCgBADNbMkfRs0PNhNkGMgqLZAPHzstZBKOpLFRaDHvnRP9dQqBDUZB1Kt4nHrDUmL2nOSC8J9AZCXyhAu9sltCKaoieMdo3LVKrOs8GnEUD9UvWvamoQEHs2WoG9dHefa1tle6P3Wvo7D8vU73RYqkdCXyyqEgAnak3jXwge1PgrqMHrndIXzcZD"], ["visible_radius", 5], ["created_at", "2017-09-17 03:26:26.605053"], ["updated_at", "2017-09-17 03:26:26.605053"], ["name", "Sachith Gullapalli"], ["pro_pic_url", "http://graph.facebook.com/10155757977328035/picture"]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT ?[0m  [["facebook_id", "1683815938304369"], ["LIMIT", 1]]
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered api/users/_user.json.jbuilder (1.6ms)
+  Rendered api/users/show.json.jbuilder (2.5ms)
+Completed 200 OK in 661ms (Views: 6.1ms | ActiveRecord: 3.3ms)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/api/session" for 67.169.71.210 at 2017-09-16 20:27:29 -0700
+Cannot render console from 67.169.71.210! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"session_token"=>"EAAY5MI6sEZCgBAIZBsY6r0Nmh7hjZCbKLGB8eP9WIJgZAZCqsta6ZCCtdtPhfzcmVRWVtNN1qdmQwCZBNP9lWF1fLzOs8prQ1BnqJushOq8Ks5TM5QGkDAxQeS5DAU7Jx7BYtCq3EeZBEGpJRXyqx5gkhMRdzVSFlJvcKmFRCLG17OP19gCRHUGb7jN4TBkrd279FZA24mTjljgZDZD", "facebook_id"=>"1683815938304369"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT ?[0m  [["facebook_id", "1683815938304369"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("facebook_id", "session_token", "visible_radius", "created_at", "updated_at", "name", "pro_pic_url") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["facebook_id", "1683815938304369"], ["session_token", "EAAY5MI6sEZCgBAIZBsY6r0Nmh7hjZCbKLGB8eP9WIJgZAZCqsta6ZCCtdtPhfzcmVRWVtNN1qdmQwCZBNP9lWF1fLzOs8prQ1BnqJushOq8Ks5TM5QGkDAxQeS5DAU7Jx7BYtCq3EeZBEGpJRXyqx5gkhMRdzVSFlJvcKmFRCLG17OP19gCRHUGb7jN4TBkrd279FZA24mTjljgZDZD"], ["visible_radius", 5], ["created_at", "2017-09-17 03:27:29.796179"], ["updated_at", "2017-09-17 03:27:29.796179"], ["name", "Tommy Kilmer"], ["pro_pic_url", "http://graph.facebook.com/1683815938304369/picture"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT ?[0m  [["facebook_id", "10155757977328035"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["friend_id", 2], ["created_at", "2017-09-17 03:27:30.022678"], ["updated_at", "2017-09-17 03:27:30.022678"]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 2], ["friend_id", 3], ["created_at", "2017-09-17 03:27:30.031076"], ["updated_at", "2017-09-17 03:27:30.031076"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (3.3ms)
+  Rendered api/users/show.json.jbuilder (4.7ms)
+Completed 200 OK in 627ms (Views: 12.6ms | ActiveRecord: 10.6ms)
+
+

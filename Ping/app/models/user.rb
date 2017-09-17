@@ -4,6 +4,8 @@ class User < ApplicationRecord
 
   has_many :friends, :through => :friendships
 
+  belongs_to :location, optional: true
+
   def fill_user_data(graph)
     self.visible_radius = 5;
     self.facebook_id = graph.get_object("me")["id"]
