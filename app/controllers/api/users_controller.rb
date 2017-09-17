@@ -3,6 +3,7 @@ require "redis"
 class Api::UsersController < ApplicationController
 
   def update
+    debugger
     #location
     #automatically track the users location, used by ping in the background
     # location = Location.create!(latitude: params[:lat].to_f, longitude: params[:lng].to_f)
@@ -98,7 +99,7 @@ class Api::UsersController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit(:longitude, :latitude)
+    params.permit(:latitude, :longitude)
   end
 
 
