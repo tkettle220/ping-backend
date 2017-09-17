@@ -1,6 +1,6 @@
 class Location < ActiveRecord::Base
 
-  has_one :user, optional: true
+  has_one :user
 
   acts_as_mappable :default_units => :miles,
                    :default_formula => :sphere,
