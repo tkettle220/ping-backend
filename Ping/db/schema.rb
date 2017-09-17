@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170916222121) do
+ActiveRecord::Schema.define(version: 20170916234920) do
 
   create_table "friendships", force: :cascade do |t|
     t.integer "user_id"
@@ -39,6 +39,9 @@ ActiveRecord::Schema.define(version: 20170916222121) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "pro_pic_url"
+    t.index ["facebook_id"], name: "index_users_on_facebook_id"
+    t.index ["location_id"], name: "index_users_on_location_id"
+    t.index ["session_token"], name: "index_users_on_session_token"
   end
 
 end
