@@ -86,7 +86,7 @@ class Api::UsersController < ApplicationController
       pings = redis.get(@user.facebook_id)
       if pings && pings != ""
         render json: JSON.parse(pings)
-        redis.set(@user.facebook_id, "")
+        # redis.set(@user.facebook_id, "")
       else
         render json: []
       end
