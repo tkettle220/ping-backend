@@ -5,10 +5,18 @@ class Api::UsersController < ApplicationController
   def update
     #location
     #automatically track the users location, used by ping in the background
-    location = Location.create!(latitude: params[:lat].to_f, longitude: params[:lng].to_f)
-    location.save!
+    # location = Location.create!(latitude: params[:lat].to_f, longitude: params[:lng].to_f)
+    # location.save!
     @user = User.find_by_session_token(params[:session_token])
     if @user
+      location = @user.location
+      if location
+        location.latitude = params[:lat].to_f
+        location.longitude = params[:lng].to_f
+      else
+        location = Location.create!(latitude: params[:lat].to_f, longitude: params[:lng].to_f)
+      end
+      location.save!
       @user.location_id = location.id
       if @user.save
         render "api/users/show"
@@ -23,7 +31,7 @@ class Api::UsersController < ApplicationController
   def ping
     #first make sure the friend is actually friends with you
     #if the friend is within pingable distance, return the friend's name, pic, and location via JSON, otherwise, return json string "out_of_range"
-    #Expects a session_token and a friend fb id
+    #Expects a session_token, a friend fb id, and emergency
     @user = User.find_by_session_token(params[:session_token])
     @emergency = params[:emergency]
     if @user
