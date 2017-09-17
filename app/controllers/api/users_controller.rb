@@ -16,7 +16,6 @@ class Api::UsersController < ApplicationController
         location = Location.create!(latitude: params[:lat].to_f, longitude: params[:lng].to_f)
         location.save!
       end
-      location.save!
       @user.location_id = location.id
       if @user.save
         render "api/users/show"
