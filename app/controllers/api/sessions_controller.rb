@@ -1,5 +1,8 @@
 class Api::SessionsController < ApplicationController
 
+# We create and look up users by fbId here
+# If the user esists, we assign session token to log them in
+# If they don't exist we create
   def create
     @user = current_user
     if @user
@@ -11,6 +14,8 @@ class Api::SessionsController < ApplicationController
     end
   end
 
+# Session token here is the users's fb session token
+# We use this to get their name, pro pic, and friends on creation
   def make_user
     @user = User.new({session_token: params[:session_token]})
     graph = Koala::Facebook::API.new(@user.session_token)

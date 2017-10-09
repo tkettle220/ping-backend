@@ -2,18 +2,19 @@ require "redis"
 
 class Api::UsersController < ApplicationController
 
+  #location
+  #automatically track the users location, used by ping in the background
+
+  #expects a session token and a latitude and longitude in the request
+  #updates the user's location
   def update
-    #location
-    #automatically track the users location, used by ping in the background
-    # location = Location.create!(latitude: params[:lat].to_f, longitude: params[:lng].to_f)
-    # location.save!
     @user = User.find_by_session_token(params[:session_token])
     if @user
       location = @user.location
       if location
         location.update_attributes(location_params)
       else
-        location = Location.create!(latitude: params[:lat].to_f, longitude: params[:lng].to_f)
+        location = Location.create!(latitude: params[:latitude].to_f, longitude: params[:longitude].to_f)
         location.save!
         @user.location_id = location.id
       end
@@ -27,10 +28,10 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  #first make sure the friend is actually friends with you
+  #if the friend is within pingable distance, return the friend's name, pic, and location via JSON, otherwise, return json string "out_of_range"
+  #Expects a session_token, a friend fb id, and emergency flag
   def ping
-    #first make sure the friend is actually friends with you
-    #if the friend is within pingable distance, return the friend's name, pic, and location via JSON, otherwise, return json string "out_of_range"
-    #Expects a session_token, a friend fb id, and emergency
     @user = User.find_by_session_token(params[:session_token])
     @emergency = params[:emergency]
     if @user
@@ -76,9 +77,9 @@ class Api::UsersController < ApplicationController
 
   end
 
+  #render the json from redis
+  #clear redis
   def get_pings
-    #render the json from redis
-    #clear redis
     redis = Redis.current
     @user = User.find_by_session_token(params[:session_token])
     if @user
