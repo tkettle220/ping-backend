@@ -28,6 +28,25 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def request_friend
+    @user = User.find_by_session_token(params[:session_token])
+    if @user
+      @user.request_friend(params[:friend_id])
+      render "api/users/show"
+    else
+      render json: ["User not found"], status: 404
+    end
+  end
+
+  def approve_friend
+    @user = User.find_by_session_token(params[:session_token])
+    if @user.add_friend(params[:friend_id])
+      render "api/users/show"
+    else
+      render json: ["You are already friends"], status: 422
+    end
+  end
+
   #first make sure the friend is actually friends with you
   #if the friend is within pingable distance, return the friend's name, pic, and location via JSON, otherwise, return json string "out_of_range"
   #Expects a session_token, a friend fb id, and emergency flag
