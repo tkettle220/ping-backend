@@ -7,13 +7,15 @@ class User < ApplicationRecord
   belongs_to :location, optional: true
 
   def fill_user_data(graph)
-    self.visible_radius = 5;
+    self.visible_radius = 5
     self.facebook_id = graph.get_object("me")["id"]
     self.name = graph.get_object("me")["name"]
     self.pro_pic_url = "http://graph.facebook.com/#{self.facebook_id}/picture"
   end
 
   def add_friend(friend_id)
+    friend = User.find(friend_id)
+    return false if self.friends.include?(friend)
     # auto adds for now, later need approval before add, use redis?
     Friendship.create!(user_id: self.id, friend_id: friend_id)
     Friendship.create!(user_id: friend_id, friend_id: self.id)

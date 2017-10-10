@@ -28,19 +28,16 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def request
+  def request_friend
     @user = User.find_by_session_token(params[:session_token])
-    graph = Koala::Facebook::API.new(@user.session_token)
-    ping_friends = @user.friends_on_ping(graph)
-    if ping_friends.ids.include?(params[:friend_id])
-      @user.add_friend(params[:friend_id])
+    if @user.add_friend(params[:friend_id])
       render "api/users/show"
     else
-      render json: ["You are not FB friends"], status: 422
+      render json: ["You are already friends"], status: 422
     end
   end
 
-  def approve
+  def approve_friend
 
   end
 
