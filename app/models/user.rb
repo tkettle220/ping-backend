@@ -19,16 +19,18 @@ class User < ApplicationRecord
     Friendship.create!(user_id: friend_id, friend_id: self.id)
   end
 
-  def friends_on_ping(graph)
+  def new_friends_on_ping
+    graph = Koala::Facebook::API.new(self.session_token)
     all_friends = graph.get_connections("me", "friends")
-    all_friends_fb_ids = all_friends.map { |friend| friend[:id] }
+    all_friends_fb_ids = all_friends.map { |friend| friend["id"] }
 
     ping_friends = []
     all_friends_fb_ids.each do |fb_id|
       ping_friend = User.find_by(facebook_id: fb_id)
-      ping_friends << ping_friend if ping_friend
+      if ping_friend && !ping_friend.friends.ids.include?(self.id)
+        ping_friends << ping_friend
+      end
     end
-
     ping_friends
   end
 
