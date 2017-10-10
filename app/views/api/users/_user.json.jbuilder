@@ -10,11 +10,31 @@ json.friends  do
 end
 
 json.fb_friends do
-  user.new_friends_on_ping.each do |friend|
+  user.suggested_friends.each do |friend|
     json.set! friend.facebook_id do
       json.id friend.id
       json.name friend.name
       json.pro_pic_url friend.pro_pic_url
     end
   end
+end
+
+json.pending_friends do
+  user.requested_friends.each do |friend|
+    json.set! friend.facebook_id do
+      json.id friend.id
+      json.name friend.name
+      json.pro_pic_url friend.pro_pic_url
+      json.require_approval false
+    end
+  end
+  user.friend_requesters.each do |friend|
+    json.set! friend.facebook_id do
+      json.id friend.id
+      json.name friend.name
+      json.pro_pic_url friend.pro_pic_url
+      json.require_approval true
+    end
+  end
+
 end

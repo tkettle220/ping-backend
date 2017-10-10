@@ -30,15 +30,21 @@ class Api::UsersController < ApplicationController
 
   def request_friend
     @user = User.find_by_session_token(params[:session_token])
+    if @user
+      @user.request_friend(params[:friend_id])
+      render "api/users/show"
+    else
+      render json: ["User not found"], status: 404
+    end
+  end
+
+  def approve_friend
+    @user = User.find_by_session_token(params[:session_token])
     if @user.add_friend(params[:friend_id])
       render "api/users/show"
     else
       render json: ["You are already friends"], status: 422
     end
-  end
-
-  def approve_friend
-
   end
 
   #first make sure the friend is actually friends with you

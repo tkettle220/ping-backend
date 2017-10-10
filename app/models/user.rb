@@ -1,8 +1,11 @@
 class User < ApplicationRecord
 
-  has_many :friendships, :dependent => :destroy
-
-  has_many :friends, :through => :friendships
+  has_many :friendships, dependent: :destroy
+  has_many :friends, through: :friendships
+  has_many :requested_friendships, foreign_key: :requester_id, class_name: "PendingFriendship"
+  has_many :requested_friends, through: :requested_friendships, source: :requestee
+  has_many :friendship_requests, foreign_key: :requestee_id, class_name: "PendingFriendship"
+  has_many :friend_requesters, through: :friendship_requests, source: :requester
 
   belongs_to :location, optional: true
 
@@ -13,15 +16,21 @@ class User < ApplicationRecord
     self.pro_pic_url = "http://graph.facebook.com/#{self.facebook_id}/picture"
   end
 
+  def request_friend(friend_id)
+    PendingFriendship.create!(requester_id: self.id, requestee_id: friend_id)
+  end
+
   def add_friend(friend_id)
     friend = User.find(friend_id)
     return false if self.friends.include?(friend)
-    # auto adds for now, later need approval before add, use redis?
+
     Friendship.create!(user_id: self.id, friend_id: friend_id)
     Friendship.create!(user_id: friend_id, friend_id: self.id)
+    pending = PendingFriendship.where(requester_id: friend_id, requestee_id: self.id)
+    pending[0].destroy
   end
 
-  def new_friends_on_ping
+  def suggested_friends
     graph = Koala::Facebook::API.new(self.session_token)
     all_friends = graph.get_connections("me", "friends")
     all_friends_fb_ids = all_friends.map { |friend| friend["id"] }
@@ -29,8 +38,13 @@ class User < ApplicationRecord
     ping_friends = []
     all_friends_fb_ids.each do |fb_id|
       ping_friend = User.find_by(facebook_id: fb_id)
-      if ping_friend && !ping_friend.friends.ids.include?(self.id)
-        ping_friends << ping_friend
+      if ping_friend
+        already_friends = ping_friend.friends.ids.include?(self.id)
+        requester = ping_friend.friend_requesters.ids.include?(self.id)
+        requestee = ping_friend.requested_friends.ids.include?(self.id)
+        unless already_friends || requester || requestee
+          ping_friends << ping_friend
+        end
       end
     end
     ping_friends
