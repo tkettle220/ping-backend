@@ -28,6 +28,22 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def request
+    @user = User.find_by_session_token(params[:session_token])
+    graph = Koala::Facebook::API.new(@user.session_token)
+    ping_friends = @user.friends_on_ping(graph)
+    if ping_friends.ids.include?(params[:friend_id])
+      @user.add_friend(params[:friend_id])
+      render "api/users/show"
+    else
+      render json: ["You are not FB friends"], status: 422
+    end
+  end
+
+  def approve
+
+  end
+
   #first make sure the friend is actually friends with you
   #if the friend is within pingable distance, return the friend's name, pic, and location via JSON, otherwise, return json string "out_of_range"
   #Expects a session_token, a friend fb id, and emergency flag
