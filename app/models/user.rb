@@ -9,6 +9,9 @@ class User < ApplicationRecord
 
   belongs_to :location, optional: true
 
+  has_one :token, dependent: :destroy
+
+
   def fill_user_data(graph)
     self.visible_radius = 5
     self.facebook_id = graph.get_object("me")["id"]
