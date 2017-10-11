@@ -23,11 +23,14 @@ class Api::TokensController < ApplicationController
         end
       end
 
-      exponent.publish(
-        exponentPushToken: @token.value,
-        message: message,
-        data: {a: 'b'}, # Data is required, pass any arbitrary data to include with the notification
-      )
+
+      messages = [{
+        to: @token.value,
+        sound: "default",
+        body: message
+      }]
+
+      exponent.publish messages
 
       render json: {success: true}
     else
