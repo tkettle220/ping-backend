@@ -1,5 +1,5 @@
 json.friend do
-  json.extract! @friend, :name, :pro_pic_url
+  json.extract! @friend, :name, :pro_pic_url, :facebook_id
 end
 json.emergency @emergency
 if @emergency || (@friend.location && @friend.location.distance_from(@user.location) <= @friend.visible_radius)
