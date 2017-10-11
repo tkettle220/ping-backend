@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :requested_friends, through: :requested_friendships, source: :requestee
   has_many :friendship_requests, foreign_key: :requestee_id, class_name: "PendingFriendship"
   has_many :friend_requesters, through: :friendship_requests, source: :requester
+  has_many :messages
+  has_many :chatrooms, through: :messages
 
   belongs_to :location, optional: true
 

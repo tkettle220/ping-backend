@@ -32,11 +32,7 @@ class Api::SessionsController < ApplicationController
       render json: @user.errors.full_messages, status: 422
     end
   end
-
-  def current_user
-    User.find_by(facebook_id: params[:facebook_id])
-  end
-
+  
   private
 
   # def user_params
