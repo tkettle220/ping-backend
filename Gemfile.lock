@@ -71,6 +71,8 @@ GEM
     debug_inspector (0.0.3)
     erubi (1.6.1)
     execjs (2.7.0)
+    exponent-server-sdk (0.0.2)
+      httparty
     faraday (0.13.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
@@ -80,6 +82,8 @@ GEM
       rails (>= 3.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    httparty (0.15.6)
+      multi_xml (>= 0.5.2)
     i18n (0.8.6)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -105,6 +109,7 @@ GEM
     mini_portile2 (2.2.0)
     minitest (5.10.3)
     multi_json (1.12.2)
+    multi_xml (0.6.0)
     multipart-post (2.0.0)
     nio4r (2.1.0)
     nokogiri (1.8.0)
@@ -210,6 +215,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  exponent-server-sdk
   geokit-rails
   jbuilder (~> 2.5)
   koala
