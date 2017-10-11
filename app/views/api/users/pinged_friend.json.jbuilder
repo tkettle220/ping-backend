@@ -3,7 +3,6 @@ json.friend do
 end
 json.emergency @emergency
 
-debugger
 json.status @ping[:status]
 json.friend do
   json.location do
