@@ -16,7 +16,7 @@ class Api::TokensController < ApplicationController
         @token = Token.new(value: params[:token][:value])
         @token.user = @user
         if @token.save
-          message = 'Welcome to Expo'
+          message = 'Welcome to Ping'
         else
           render json: ["Token creation failed"], status: 401
           return
