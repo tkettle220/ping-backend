@@ -1,4 +1,5 @@
 require 'exponent-server-sdk'
+require_relative "../../models/concerns/exponent-server-sdk.rb"
 
 class Api::TokensController < ApplicationController
   def create
@@ -32,6 +33,23 @@ class Api::TokensController < ApplicationController
     else
       render json: ["Invalid session token"], status: 401
     end
+  end
+
+  def send_push
+    @friend = User.find_by_facebook_id(params[:friend_facebook_id])
+    friend_push_token = @friend.token
+    message = params[:message]
+
+    messages = [{
+      to: friend_push_token.value,
+      sound: "default",
+      body: message
+    }]
+
+    exponent.publish messages
+
+    render json: {success: true}
+
   end
 
   private
