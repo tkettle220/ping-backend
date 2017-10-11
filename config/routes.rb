@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     post 'ping_friend', :to => 'users#ping'
     post 'get_pings', :to => 'users#get_pings'
     post 'push_token', :to => 'tokens#create'
+    post 'send_push', :to => 'tokens#send_push'
     resource :session, only: [:create]
   end
 end
