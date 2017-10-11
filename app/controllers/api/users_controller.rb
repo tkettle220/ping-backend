@@ -59,26 +59,26 @@ class Api::UsersController < ApplicationController
         # redis = Redis.current
         # friend_pings_string = redis.get(@friend.facebook_id)
         #create ping object
-        @ping = {
-          from: @user.facebook_id,
-
-          time: Time.now.to_i,
-          emergency: @emergency,
-          status: "false"
-        }
-
-        if @emergency == "true" || (@friend.location && @friend.location.distance_from(@user.location) <= @friend.visible_radius)
-          @ping[:location] = {
-                      lat: @user.location.latitude,
-                      lng: @user.location.longitude
-                    }
-          @ping[:status] = "true"
-        else
-          @ping[:location] = {
-                      lat: nil,
-                      lng: nil
-                    }
-        end
+        # @ping = {
+        #   from: @user.facebook_id,
+        #
+        #   time: Time.now.to_i,
+        #   emergency: @emergency,
+        #   status: "false"
+        # }
+        #
+        # if @emergency || (@friend.location && @friend.location.distance_from(@user.location) <= @friend.visible_radius)
+        #   @ping[:location] = {
+        #               lat: @user.location.latitude,
+        #               lng: @user.location.longitude
+        #             }
+        #   @ping[:status] = "true"
+        # else
+        #   @ping[:location] = {
+        #               lat: nil,
+        #               lng: nil
+        #             }
+        # end
 
 
         # if friend_pings_string && friend_pings_string != ""
