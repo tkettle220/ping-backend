@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171011163434) do
+ActiveRecord::Schema.define(version: 20171012184455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20171011163434) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "pro_pic_url"
+    t.boolean "findable", default: true
     t.index ["facebook_id"], name: "index_users_on_facebook_id"
     t.index ["location_id"], name: "index_users_on_location_id"
     t.index ["session_token"], name: "index_users_on_session_token"
