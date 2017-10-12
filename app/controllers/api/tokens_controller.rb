@@ -47,7 +47,6 @@ class Api::TokensController < ApplicationController
   end
 
   def send_push
-    debugger
     @friend = User.find_by_facebook_id(params[:friend_facebook_id])
     friend_push_token = @friend.token
     message = params[:message]
