@@ -24,21 +24,13 @@ class Api::TokensController < ApplicationController
       end
 
 
-      # messages = [{
-      #   to: @token.value,
-      #   sound: "default",
-      #   body: message
-      # }]
+      messages = [{
+        to: @token.value,
+        sound: "default",
+        body: message
+      }]
 
-      # exponent.publish messages
-
-
-      exponent.publish(
-        exponentPushToken: @token.value,
-        message: message,
-        data: {message: message},
-      )
-
+      exponent.publish messages
 
       render json: {success: true}
     else
@@ -51,19 +43,13 @@ class Api::TokensController < ApplicationController
     friend_push_token = @friend.token
     message = params[:message]
 
-    exponent.publish(
-      exponentPushToken: friend_push_token.value,
-      message: message,
-      data: {message: message},
-    )
+    messages = [{
+      to: friend_push_token.value,
+      sound: "default",
+      body: message
+    }]
 
-    # messages = [{
-    #   to: friend_push_token.value,
-    #   sound: "default",
-    #   body: message
-    # }]
-    #
-    # exponent.publish messages
+    exponent.publish messages
 
     render json: {success: true}
 
@@ -76,7 +62,7 @@ class Api::TokensController < ApplicationController
   end
 
   def exponent
-    @exponent ||= Exponent::Push::LegacyClient.new
+    @exponent ||= Exponent::Push::Client.new
   end
 
 
