@@ -24,13 +24,21 @@ class Api::TokensController < ApplicationController
       end
 
 
-      messages = [{
-        to: @token.value,
-        sound: "default",
-        body: message
-      }]
+      # messages = [{
+      #   to: @token.value,
+      #   sound: "default",
+      #   body: message
+      # }]
 
-      exponent.publish messages
+      # exponent.publish messages
+
+
+      exponent.publish(
+        exponentPushToken: @token.value,
+        message: message,
+        data: {message: message},
+      )
+
 
       render json: {success: true}
     else
@@ -39,17 +47,24 @@ class Api::TokensController < ApplicationController
   end
 
   def send_push
+    debugger
     @friend = User.find_by_facebook_id(params[:friend_facebook_id])
     friend_push_token = @friend.token
     message = params[:message]
 
-    messages = [{
-      to: friend_push_token.value,
-      sound: "default",
-      body: message
-    }]
+    exponent.publish(
+      exponentPushToken: friend_push_token.value,
+      message: message,
+      data: {message: message},
+    )
 
-    exponent.publish messages
+    # messages = [{
+    #   to: friend_push_token.value,
+    #   sound: "default",
+    #   body: message
+    # }]
+    #
+    # exponent.publish messages
 
     render json: {success: true}
 
@@ -62,7 +77,7 @@ class Api::TokensController < ApplicationController
   end
 
   def exponent
-    @exponent ||= Exponent::Push::Client.new
+    @exponent ||= Exponent::Push::LegacyClient.new
   end
 
 
