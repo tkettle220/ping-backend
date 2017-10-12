@@ -28,7 +28,7 @@ class Api::TokensController < ApplicationController
         to: @token.value,
         sound: "default",
         body: message,
-        data: message
+        data: {message: message}
       }]
 
       exponent.publish messages
@@ -48,7 +48,7 @@ class Api::TokensController < ApplicationController
       to: friend_push_token.value,
       sound: "default",
       body: message,
-      data: message
+      data: {message: message}
     }]
 
     exponent.publish messages
