@@ -1,4 +1,4 @@
-json.extract! user, :id, :name, :pro_pic_url
+json.extract! user, :id, :name, :pro_pic_url, :visible_radius, :findable
 
 json.friends  do
   user.friends.each do |friend|
