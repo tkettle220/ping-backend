@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     post 'ping_friend', :to => 'users#ping'
     post 'get_pings', :to => 'users#get_pings'
     resource :session, only: [:create]
-    resources :messages, only: [:create]
-    resources :chatrooms, only: [:create, :show]
+    resources :messages, only: [:create, :index]
   end
 end
