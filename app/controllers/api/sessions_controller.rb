@@ -33,14 +33,14 @@ class Api::SessionsController < ApplicationController
     end
   end
 
-  def current_user
-    User.find_by(facebook_id: params[:facebook_id])
-  end
-
   private
 
   # def user_params
   #   params.permit(:session_token, :facebook_id)
   # end
+
+  def current_user
+    User.find_by(facebook_id: params[:facebook_id])
+  end
 
 end
