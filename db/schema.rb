@@ -60,6 +60,14 @@ ActiveRecord::Schema.define(version: 20171013014533) do
     t.index ["requester_id"], name: "index_pending_friendships_on_requester_id"
   end
 
+  create_table "tokens", force: :cascade do |t|
+    t.string "value", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tokens_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "facebook_id", null: false
     t.string "session_token", null: false
@@ -69,6 +77,7 @@ ActiveRecord::Schema.define(version: 20171013014533) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "pro_pic_url"
+    t.boolean "findable", default: true
     t.index ["facebook_id"], name: "index_users_on_facebook_id"
     t.index ["location_id"], name: "index_users_on_location_id"
     t.index ["session_token"], name: "index_users_on_session_token"

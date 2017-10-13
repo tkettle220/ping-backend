@@ -26,6 +26,9 @@ gem 'pg'
 gem 'pry-rails'
 gem 'pry'
 
+gem 'exponent-server-sdk'
+gem 'httparty'
+
 
 
 gem 'rails_12factor'
