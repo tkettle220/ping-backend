@@ -56,20 +56,7 @@ class User < ApplicationRecord
     ping_friends
   end
 
-  # def add_friends(graph)
-  #   friends = graph.get_connections("me", "friends")
-  #
-  #   friend_facebook_ids = friends.map{ |friend| friend["id"]}
-  #   friend_ids = friend_facebook_ids.map do |fb_id|
-  #     friend = User.find_by(facebook_id: fb_id)
-  #     friend.nil? ? nil : friend.id
-  #   end
-  #   friend_ids.each do |id|
-  #     return unless id
-  #     #need to find the id of the friend with this facebook_id
-  #     Friendship.create!(user_id: self.id, friend_id: id)
-  #     Friendship.create!(user_id: id, friend_id: self.id)
-  #   end
-  # end
-
+  def get_chatroom_id(friend_id)
+    Friendship.where(user_id: self.id, friend_id: friend_id)[0].chatroom_id
+  end
 end

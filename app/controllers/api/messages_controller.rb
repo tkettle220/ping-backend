@@ -12,8 +12,8 @@ class Api::MessagesController < ApplicationController
     end
   end
 
-  def index
-    @messages = Message.includes(:user).where(chatroom_id: params[:chatroom_id])
-    render json: 'api/messages/index'
+  def show
+    @messages = Message.includes(:user).where(chatroom_id: params[:id])
+    render "api/messages/show"
   end
 end
