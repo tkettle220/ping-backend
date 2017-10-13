@@ -1,5 +1,8 @@
 class Chatroom < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :users, through: :messages
-  validates :chatname, presence: true, uniqueness: true, case_sensitive: false
+
+  has_many :friend_pairs,
+    foreign_key: :chatroom_id,
+    class_name: "Friendship"
 end

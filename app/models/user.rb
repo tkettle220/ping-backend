@@ -7,9 +7,12 @@ class User < ApplicationRecord
   has_many :friendship_requests, foreign_key: :requestee_id, class_name: "PendingFriendship"
   has_many :friend_requesters, through: :friendship_requests, source: :requester
   has_many :messages
-  has_many :chatrooms, through: :messages
-
   belongs_to :location, optional: true
+
+  has_many :chatrooms,
+    through: :friendships,
+    source: :chatroom,
+    dependent: :destroy
 
   def fill_user_data(graph)
     self.visible_radius = 5
@@ -26,8 +29,9 @@ class User < ApplicationRecord
     friend = User.find(friend_id)
     return false if self.friends.include?(friend)
 
-    Friendship.create!(user_id: self.id, friend_id: friend_id)
-    Friendship.create!(user_id: friend_id, friend_id: self.id)
+    new_chat = Chatroom.create!
+    Friendship.create!(user_id: self.id, friend_id: friend_id, chatroom_id: new_chat.id)
+    Friendship.create!(user_id: friend_id, friend_id: self.id, chatroom_id: new_chat.id)
     pending = PendingFriendship.where(requester_id: friend_id, requestee_id: self.id)
     pending[0].destroy
   end
