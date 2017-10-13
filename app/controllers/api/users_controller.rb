@@ -101,29 +101,24 @@ class Api::UsersController < ApplicationController
 
   end
 
-  #render the json from redis
-  #clear redis
-  # def get_pings
-  #   redis = Redis.current
-  #   @user = User.find_by_session_token(params[:session_token])
-  #   if @user
-  #     pings = redis.get(@user.facebook_id)
-  #     if pings && pings != ""
-  #       render json: JSON.parse(pings)
-  #       redis.set(@user.facebook_id, "")
-  #     else
-  #       render json: []
-  #     end
-  #   else
-  #     render json: ["Invalid session token"], status: 401
-  #   end
-  #
-  # end
+  def update_settings
+    @user = User.find_by_session_token(params[:session_token])
+    if @user
+      @user.update_attributes(setting_params)
+      render "api/users/show"
+    else
+      render json: ["Invalid session token"], status: 401
+    end
+  end
 
   private
 
   def location_params
     params.permit(:latitude, :longitude)
+  end
+
+  def setting_params
+    params.require(:settings).permit(:findable, :visible_radius)
   end
 
 

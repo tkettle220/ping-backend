@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     post 'get_pings', :to => 'users#get_pings'
     post 'push_token', :to => 'tokens#create'
     post 'send_push', :to => 'tokens#send_push'
+    post 'update_settings', :to => 'users#update_settings'
     resource :session, only: [:create]
   end
 end
