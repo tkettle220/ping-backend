@@ -6,11 +6,14 @@ class User < ApplicationRecord
   has_many :requested_friends, through: :requested_friendships, source: :requestee
   has_many :friendship_requests, foreign_key: :requestee_id, class_name: "PendingFriendship"
   has_many :friend_requesters, through: :friendship_requests, source: :requester
-
+  has_many :messages
   belongs_to :location, optional: true
-
   has_one :token, dependent: :destroy
 
+  has_many :chatrooms,
+    through: :friendships,
+    source: :chatroom,
+    dependent: :destroy
 
   def fill_user_data(graph)
     self.visible_radius = 5
@@ -29,8 +32,9 @@ class User < ApplicationRecord
     friend = User.find(friend_id)
     return false if self.friends.include?(friend)
 
-    Friendship.create!(user_id: self.id, friend_id: friend_id)
-    Friendship.create!(user_id: friend_id, friend_id: self.id)
+    new_chat = Chatroom.create!
+    Friendship.create!(user_id: self.id, friend_id: friend_id, chatroom_id: new_chat.id)
+    Friendship.create!(user_id: friend_id, friend_id: self.id, chatroom_id: new_chat.id)
     pending = PendingFriendship.where(requester_id: friend_id, requestee_id: self.id)
     pending[0].destroy
   end
@@ -55,20 +59,7 @@ class User < ApplicationRecord
     ping_friends
   end
 
-  # def add_friends(graph)
-  #   friends = graph.get_connections("me", "friends")
-  #
-  #   friend_facebook_ids = friends.map{ |friend| friend["id"]}
-  #   friend_ids = friend_facebook_ids.map do |fb_id|
-  #     friend = User.find_by(facebook_id: fb_id)
-  #     friend.nil? ? nil : friend.id
-  #   end
-  #   friend_ids.each do |id|
-  #     return unless id
-  #     #need to find the id of the friend with this facebook_id
-  #     Friendship.create!(user_id: self.id, friend_id: id)
-  #     Friendship.create!(user_id: id, friend_id: self.id)
-  #   end
-  # end
-
+  def get_chatroom_id(friend_id)
+    Friendship.where(user_id: self.id, friend_id: friend_id)[0].chatroom_id
+  end
 end

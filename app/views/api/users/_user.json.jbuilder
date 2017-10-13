@@ -5,6 +5,7 @@ json.friends  do
     json.set! friend.facebook_id do
       json.name friend.name
       json.pro_pic_url friend.pro_pic_url
+      json.chatroom_id user.get_chatroom_id(friend.id)
     end
   end
 end

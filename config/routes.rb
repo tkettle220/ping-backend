@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  mount ActionCable.server => '/cable'
 
   namespace :api, defaults: { format: :json } do
     post 'location', :to => 'users#update'
@@ -11,5 +12,6 @@ Rails.application.routes.draw do
     post 'send_push', :to => 'tokens#send_push'
     post 'update_settings', :to => 'users#update_settings'
     resource :session, only: [:create]
+    resources :messages, only: [:create, :show]
   end
 end
