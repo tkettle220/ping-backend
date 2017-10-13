@@ -5,6 +5,7 @@ Rails.application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
+  ENV["REDISTOGO_URL"] = 'redis://redistogo:08ca119b81e44a5716104ec6311a3bd5@angelfish.redistogo.com:11848/'
 
   # Do not eager load code on boot.
   config.eager_load = false
