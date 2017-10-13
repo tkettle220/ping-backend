@@ -6,7 +6,8 @@ class Api::MessagesController < ApplicationController
       ActionCable.server.broadcast "messages_#{params[:chatroom_id]}",
         content: @message.content,
         user: @message.user.name
-      head :ok
+      # head :ok
+      render 'api/messages/message'
     else
       render json: @message.errors.full_messages, status: 422
     end
@@ -15,5 +16,9 @@ class Api::MessagesController < ApplicationController
   def show
     @messages = Message.includes(:user).where(chatroom_id: params[:id])
     render "api/messages/show"
+  end
+
+  def current_user
+    User.find_by_session_token(params[:session_token])
   end
 end
