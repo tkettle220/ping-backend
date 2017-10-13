@@ -118,7 +118,7 @@ class Api::UsersController < ApplicationController
   end
 
   def setting_params
-    params.require(:settings).permit(:findable, :visible_radius, :custom_ping_icons, :custom_ping_messages)
+    params.require(:settings).permit(:findable, :visible_radius, :custom_ping_icons => [], :custom_ping_messages => [])
   end
 
 
