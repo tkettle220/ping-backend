@@ -14,9 +14,11 @@ class User < ApplicationRecord
 
   def fill_user_data(graph)
     self.visible_radius = 5
-    self.facebook_id = graph.get_object("me")["id"]
-    self.name = graph.get_object("me")["name"]
-    self.pro_pic_url = "http://graph.facebook.com/#{self.facebook_id}/picture"
+    profile = graph.get_object('me')
+    self.facebook_id = profile["id"]
+    self.name = profile["name"]
+    self.pro_pic_url = graph.get_picture_data(profile['id'], type: :large)['data']['url']
+
   end
 
   def request_friend(friend_id)
