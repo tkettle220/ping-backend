@@ -44,7 +44,7 @@ Rails.application.configure do
   # config.action_cable.url = 'wss://gentle-anchorage-13426.herokuapp.com/cable'
   config.action_cable.allowed_request_origins = ['https://gentle-anchorage-13426.herokuapp.com', 'http://gentle-anchorage-13426.herokuapp.com']
   config.web_socket_server_url = 'wss://gentle-anchorage-13426.herokuapp.com/cable'
-
+  config.action_cable.url = 'wss://gentle-anchorage-13426.herokuapp.com/cable'
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
 
