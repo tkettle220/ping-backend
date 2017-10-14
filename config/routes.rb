@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     post 'location', :to => 'users#update'
+    post 'friends', :to => 'users#friends'
     post 'request_friend', :to => 'users#request_friend'
     post 'approve_friend', :to => 'users#approve_friend'
     post 'ping_friend', :to => 'users#ping'

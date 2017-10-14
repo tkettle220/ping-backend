@@ -25,6 +25,7 @@ class User < ApplicationRecord
   end
 
   def request_friend(friend_id)
+    # should prevent creating pending friendship if other party already requested before
     PendingFriendship.create!(requester_id: self.id, requestee_id: friend_id)
   end
 
