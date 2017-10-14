@@ -5,13 +5,13 @@ class Api::MessagesController < ApplicationController
     if @message.save
       ActionCable.server.broadcast "messages_#{params[:chatroom_id]}",
         _id: @message.id,
-          text: @message.content,
-          createdAt: @message.created_at,
-          user: {
-            _id: @message.user.id,
-            name: @message.user.name,
-            avatar: @message.user.pro_pic,
-          }
+        text: @message.content,
+        createdAt: @message.created_at,
+        user: {
+          _id: @message.user.id,
+          name: @message.user.name,
+          avatar: @message.user.pro_pic_url,
+        }
       head :ok
       render 'api/messages/message'
     else
