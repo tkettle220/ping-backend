@@ -1,6 +1,9 @@
 json.friend do
   json.extract! @friend, :name, :pro_pic_url, :facebook_id
 end
+
+json.chatroom_id @user.get_chatroom_id(@friend.id)
+
 json.emergency @emergency
 if @emergency || (@friend.location && @friend.findable && @friend.location.distance_from(@user.location) <= @friend.visible_radius)
   json.status true
@@ -14,3 +17,6 @@ else
   json.status false
   json.error "not_found"
 end
+
+
+json.chatroom_id user.get_chatroom_id(friend.id)
