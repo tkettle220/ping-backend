@@ -17,6 +17,3 @@ else
   json.status false
   json.error "not_found"
 end
-
-
-json.chatroom_id user.get_chatroom_id(friend.id)
