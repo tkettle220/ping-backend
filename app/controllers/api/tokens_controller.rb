@@ -9,31 +9,26 @@ class Api::TokensController < ApplicationController
       # otherwise it's not particularly useful
       @token = Token.where(value: params[:token][:value]).first
 
-      message = ''
       if @token.present?
-        message = 'Welcome back!'
+        render json: {success: true}
       else
         @token = Token.new(value: params[:token][:value])
         @token.user = @user
         if @token.save
-          message = 'Welcome to Ping'
+          messages = [{
+            to: @token.value,
+            sound: "default",
+            body: 'Welcome to Ping',
+            data: {message: 'Welcome to Ping'}
+          }]
+
+          exponent.publish messages
+          render json: {success: true}
         else
           render json: ["Token creation failed"], status: 401
           return
         end
       end
-
-
-      messages = [{
-        to: @token.value,
-        sound: "default",
-        body: message,
-        data: {message: message}
-      }]
-
-      exponent.publish messages
-
-      render json: {success: true}
     else
       render json: ["Invalid session token"], status: 401
     end
