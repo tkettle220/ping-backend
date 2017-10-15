@@ -25,8 +25,12 @@ class User < ApplicationRecord
   end
 
   def request_friend(friend_id)
-    # should prevent creating pending friendship if other party already requested before
-    PendingFriendship.create!(requester_id: self.id, requestee_id: friend_id)
+    return false if self.friend_requesters.ids.include?(friend_id)
+    request = PendingFriendship.new(requester_id: self.id, requestee_id: friend_id)
+    return false unless request.valid?
+
+    request.save
+    # PendingFriendship.create(requester_id: self.id, requestee_id: friend_id)
   end
 
   def add_friend(friend_id)
@@ -37,7 +41,16 @@ class User < ApplicationRecord
     Friendship.create!(user_id: self.id, friend_id: friend_id, chatroom_id: new_chat.id)
     Friendship.create!(user_id: friend_id, friend_id: self.id, chatroom_id: new_chat.id)
     pending = PendingFriendship.where(requester_id: friend_id, requestee_id: self.id)
-    pending[0].destroy
+    pending[0].destroy unless pending.nil?
+  end
+
+  def remove_friend(chatroom_id)
+    friendships = Friendship.where(chatroom_id: chatroom_id)
+    return false if friendships.nil?
+
+    friendships.each do |friendship|
+      friendship.destroy
+    end
   end
 
   def suggested_friends

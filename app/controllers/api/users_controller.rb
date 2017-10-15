@@ -39,23 +39,33 @@ class Api::UsersController < ApplicationController
   end
 
   def request_friend
-    @user = User.includes(:friends, :requested_friends, :friend_requesters)
-                .find_by_session_token(params[:session_token])
+    @user = User.find_by_session_token(params[:session_token])
     if @user
-      @user.request_friend(params[:friend_id])
-      render "api/users/friends"
+      if @user.request_friend(params[:friend_id])
+        render "api/users/friends"
+      else
+        render json: ["Request already exists"], status: 422
+      end
     else
       render json: ["User not found"], status: 404
     end
   end
 
   def approve_friend
-    @user = User.includes(:friends, :requested_friends, :friend_requesters)
-                .find_by_session_token(params[:session_token])
+    @user = User.find_by_session_token(params[:session_token])
     if @user.add_friend(params[:friend_id])
       render "api/users/friends"
     else
       render json: ["You are already friends"], status: 422
+    end
+  end
+
+  def delete_friend
+    @user = User.find_by_session_token(params[:session_token])
+    if @user.remove_friend(params[:chatroom_id])
+      render "api/users/friends"
+    else
+      render json: ["You are not friends"], status: 422
     end
   end
 
