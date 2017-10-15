@@ -47,7 +47,7 @@ class Api::TokensController < ApplicationController
     messages = [{
       to: friend_push_token.value,
       sound: "default",
-      body: data.message,
+      body: data["message"],
       data: data
     }]
 
