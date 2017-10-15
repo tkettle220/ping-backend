@@ -25,6 +25,7 @@ class User < ApplicationRecord
   end
 
   def request_friend(friend_id)
+    # should prevent creating pending friendship if other party already requested before
     PendingFriendship.create!(requester_id: self.id, requestee_id: friend_id)
   end
 
@@ -48,15 +49,12 @@ class User < ApplicationRecord
     all_friends_fb_ids.each do |fb_id|
       ping_friend = User.find_by(facebook_id: fb_id)
       if ping_friend
-        already_friends = ping_friend.friends.ids.include?(self.id)
-        requester = ping_friend.friend_requesters.ids.include?(self.id)
-        requestee = ping_friend.requested_friends.ids.include?(self.id)
-        unless already_friends || requester || requestee
-          ping_friends << ping_friend
-        end
+        ping_friends << ping_friend
       end
     end
-    ping_friends
+    not_friends = ping_friends.reject { |friend| self.friends.ids.include?(friend.id) }
+    not_requester = not_friends.reject { |friend| self.friend_requesters.ids.include?(friend.id) }
+    not_requested = not_requester.reject { |friend| self.requested_friends.ids.include?(friend.id) }
   end
 
   def get_chatroom_id(friend_id)
