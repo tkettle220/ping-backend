@@ -42,13 +42,13 @@ class Api::TokensController < ApplicationController
   def send_push
     @friend = User.find_by_facebook_id(params[:friend_facebook_id])
     friend_push_token = @friend.token
-    message = params[:message]
+    data = params[:data]
 
     messages = [{
       to: friend_push_token.value,
       sound: "default",
-      body: message,
-      data: {message: message}
+      body: data.message,
+      data: data
     }]
 
     exponent.publish messages
