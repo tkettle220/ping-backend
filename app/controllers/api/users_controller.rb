@@ -2,6 +2,17 @@ require "redis"
 
 class Api::UsersController < ApplicationController
 
+
+  def get_own_location
+    @user = User.find_by_session_token(params[:session_token])
+    if @user
+      loc = @user.location
+      render json: {lat: loc.latitude lng: loc.longitude}, status 200
+    else
+      render json: ["Invalid session token"], status: 401
+    end
+  end
+
   #location
   #automatically track the users location, used by ping in the background
 

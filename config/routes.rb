@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     post 'push_token', :to => 'tokens#create'
     post 'send_push', :to => 'tokens#send_push'
     post 'update_settings', :to => 'users#update_settings'
+    post 'get_own_location', :to => 'users#get_own_location'
     resource :session, only: [:create]
     resources :messages, only: [:create, :show]
   end
