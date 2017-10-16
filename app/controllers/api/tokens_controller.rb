@@ -15,14 +15,6 @@ class Api::TokensController < ApplicationController
         @token = Token.new(value: params[:token][:value])
         @token.user = @user
         if @token.save
-          messages = [{
-            to: @token.value,
-            sound: "default",
-            body: 'Welcome to Ping',
-            data: {message: 'Welcome to Ping'}
-          }]
-
-          exponent.publish messages
           render json: {success: true}
         else
           render json: ["Token creation failed"], status: 401
