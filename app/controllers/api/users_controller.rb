@@ -1,4 +1,5 @@
 require "redis"
+require 'json'
 
 class Api::UsersController < ApplicationController
 
@@ -7,7 +8,7 @@ class Api::UsersController < ApplicationController
     @user = User.find_by_session_token(params[:session_token])
     if @user
       loc = @user.location
-      render json: {lat: loc.latitude lng: loc.longitude}, status 200
+      render json: {lat: loc.latitude, lng: loc.longitude}, status: 200
     else
       render json: ["Invalid session token"], status: 401
     end
